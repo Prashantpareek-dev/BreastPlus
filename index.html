@@ -42,306 +42,317 @@
       position: relative;
     }
 
-    /* ===== HERO HOOK — CANVA POSTER STYLE ===== */
+    /* ===== HERO HOOK — CANVA POSTER EXACT MATCH ===== */
     .hero {
-      background: linear-gradient(170deg, #3a1828 0%, #5c2038 40%, #8b3a54 100%);
+      background: #d4708a;
       padding: 0;
       position: relative;
       overflow: hidden;
-      min-height: 680px;
       display: flex;
       flex-direction: column;
     }
 
-    /* Decorative circles */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(244, 167, 185, 0.18) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: -60px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(244, 167, 185, 0.12) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    /* Top strip */
-    .hero-topstrip {
-      background: linear-gradient(90deg, var(--pink), var(--pink-deep), var(--pink));
-      padding: 9px 20px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Poster top area: brand + product image */
-    .hero-poster-top {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 22px 0;
-      z-index: 2;
-    }
-
-    /* Decorative botanical SVG lines */
-    .hero-deco-left {
-      position: absolute;
-      left: 0;
-      top: 60px;
-      width: 80px;
-      opacity: 0.22;
-      pointer-events: none;
-    }
-
-    .hero-deco-right {
-      position: absolute;
-      right: 0;
-      top: 60px;
-      width: 80px;
-      opacity: 0.22;
-      pointer-events: none;
-      transform: scaleX(-1);
-    }
-
-    .hero-brand-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .hero-brand-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(244, 167, 185, 0.5), transparent);
-    }
-
-    .hero-brand-name {
-      font-size: 13px;
-      font-weight: 700;
-      color: rgba(244, 167, 185, 0.8);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-    }
-
-    /* Big headline on dark bg */
-    .hero-poster-title {
-      font-size: 38px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      line-height: 1.18;
-      margin-bottom: 4px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-poster-title em {
-      font-style: normal;
-      color: var(--pink);
-      display: block;
-    }
-
-    .hero-poster-tagline {
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.55);
-      text-align: center;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-      font-weight: 400;
-    }
-
-    /* Product image with decorative ring */
-    .hero-img-wrap {
-      position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 6px;
-    }
-
-    .hero-img-ring {
-      position: absolute;
-      inset: -12px;
-      border-radius: 50%;
-      border: 1.5px dashed rgba(244, 167, 185, 0.35);
-      animation: spinRing 18s linear infinite;
-    }
-
-    .hero-img-ring2 {
-      position: absolute;
-      inset: -24px;
-      border-radius: 50%;
-      border: 1px dashed rgba(244, 167, 185, 0.18);
-      animation: spinRing 28s linear infinite reverse;
-    }
-
-    @keyframes spinRing {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .hero-img-glow {
+    /* Pink bokeh / glitter background texture via layered radials */
+    .hero-bg {
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(244, 167, 185, 0.2) 0%, transparent 70%);
+      background:
+        radial-gradient(ellipse 200px 180px at 15% 12%, rgba(255, 200, 215, 0.55) 0%, transparent 70%),
+        radial-gradient(ellipse 160px 140px at 85% 8%, rgba(255, 180, 200, 0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 260px 200px at 50% 38%, rgba(220, 100, 130, 0.30) 0%, transparent 70%),
+        radial-gradient(ellipse 180px 160px at 10% 60%, rgba(255, 210, 220, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 140px 120px at 90% 65%, rgba(255, 190, 210, 0.40) 0%, transparent 70%),
+        radial-gradient(ellipse 300px 280px at 50% 85%, rgba(200, 70, 100, 0.25) 0%, transparent 70%),
+        linear-gradient(160deg, #e8789a 0%, #d4607e 30%, #c8587a 55%, #be4e72 80%, #aa3a60 100%);
+      pointer-events: none;
+      z-index: 0;
     }
 
-    .hero-product-img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      filter: drop-shadow(0 16px 40px rgba(244, 167, 185, 0.45));
-      animation: floatImg 3.5s ease-in-out infinite;
-      position: relative;
+    /* Sparkle dots */
+    .hero-sparkles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       z-index: 1;
-    }
-
-    @keyframes floatImg {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    /* Poster badges row */
-    .hero-badges-row {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      margin: 16px 0 20px;
-      flex-wrap: wrap;
-      z-index: 2;
-      position: relative;
-    }
-
-    .hero-badge-pill {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(244, 167, 185, 0.35);
-      border-radius: 50px;
-      padding: 5px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--pink-light);
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(4px);
-    }
-
-    /* Divider ornament */
-    .hero-ornament {
-      text-align: center;
-      color: rgba(244, 167, 185, 0.4);
-      font-size: 18px;
-      letter-spacing: 8px;
-      margin: 4px 0 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Hook questions on dark poster */
-    .hero-content {
-      padding: 0 22px 30px;
-      z-index: 2;
-      position: relative;
-    }
-
-    .hero-qs-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: rgba(244, 167, 185, 0.7);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 12px;
-    }
-
-    .hook-questions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 0 0 20px;
-    }
-
-    .hook-q {
-      background: rgba(255, 255, 255, 0.07);
-      border-left: 3px solid var(--pink);
-      border-radius: 0 14px 14px 0;
-      padding: 13px 16px;
-      font-size: 17px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.9);
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
       overflow: hidden;
-      backdrop-filter: blur(4px);
     }
 
-    .hook-q::before {
+    .hero-sparkles::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 0;
-      height: 100%;
-      background: linear-gradient(90deg, rgba(244, 167, 185, 0.12), transparent);
-      transition: width 0.4s ease;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 2px at 8% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+        radial-gradient(circle 3px at 20% 8%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(circle 1.5px at 35% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+        radial-gradient(circle 2px at 55% 5%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(circle 2.5px at 72% 14%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+        radial-gradient(circle 1px at 88% 22%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+        radial-gradient(circle 3px at 5% 42%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(circle 2px at 92% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+        radial-gradient(circle 1.5px at 15% 68%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(circle 2px at 78% 72%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(circle 3px at 44% 88%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+        radial-gradient(circle 2px at 30% 95%, rgba(255, 255, 255, 0.3) 0%, transparent 100%),
+        radial-gradient(circle 1px at 65% 92%, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
     }
 
-    .hook-q:hover::before {
+    /* Wavy ribbon top */
+    .hero-wave-top {
+      position: relative;
+      z-index: 3;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.18));
+      height: 0;
+      overflow: visible;
+    }
+
+    .hero-wave-top svg {
+      display: block;
       width: 100%;
     }
 
-    .hook-q:hover {
-      transform: translateX(5px);
-      border-left-color: var(--gold);
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .hook-q .q-icon {
-      margin-right: 8px;
-    }
-
-    /* Answer text below questions */
-    .hero-answer {
+    /* Main headline block */
+    .hero-headline-block {
+      position: relative;
+      z-index: 4;
+      padding: 22px 20px 12px;
       text-align: center;
-      font-size: 17px;
+    }
+
+    .hero-h-main {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.22;
+      text-shadow: 0 2px 8px rgba(120, 30, 55, 0.35);
+      margin-bottom: 0;
+    }
+
+    .hero-h-main .h-em {
+      font-style: italic;
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      text-shadow: 0 0 20px rgba(255, 200, 215, 0.8), 0 2px 8px rgba(120, 30, 55, 0.4);
+      display: inline;
+    }
+
+    /* Wavy divider ribbon between headline and questions */
+    .hero-wave-divider {
+      position: relative;
+      z-index: 4;
+      margin: 0;
+      line-height: 0;
+    }
+
+    .hero-wave-divider svg {
+      width: 100%;
+      display: block;
+    }
+
+    /* Questions area */
+    .hero-qs-area {
+      position: relative;
+      z-index: 4;
+        background:
+        radial-gradient(ellipse 90% 55% at 50% 20%, rgba(255, 230, 240, 0.65) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 40% at 50% 100%, rgba(180, 50, 85, 0.45) 0%, transparent 70%),
+        linear-gradient(180deg, #d4607e 0%, #e07898 30%, #f0a0bc 65%, #fad0de 85%, #feeaef 100%);
+      /* background: linear-gradient(180deg, rgba(255, 230, 235, 0.92) 0%, rgba(255, 215, 225, 0.88) 100%); */
+      padding: 18px 20px 14px;
+    }
+
+    .hero-check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .hero-check-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-check-item:hover {
+      transform: translateX(3px);
+    }
+
+    .hero-check-icon {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      background: #c84060;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      box-shadow: 0 2px 8px rgba(180, 40, 70, 0.35);
+    }
+
+    .hero-check-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: white;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-check-text {
+      font-size: 18px;
       font-weight: 600;
-      color: var(--pink-light);
-      margin-bottom: 20px;
-      line-height: 1.5;
+      color: #2e050f;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .hero-check-text b {
+      font-weight: 700;
+      color: #3a0a18;
+    }
+
+    /* Bottom visual: woman + before/after inset */
+    .hero-bottom-visual {
+      position: relative;
+      z-index: 4;
+      background: linear-gradient(180deg, rgba(255, 230, 235, 0.92) 0%, rgba(255, 215, 225, 0.88) 100%);
+        display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .hero-woman-img {
+      position: relative;
+      display: block;
+      width: 78%;
+      max-width: 320px;
+      margin: 0 auto;
+      filter: drop-shadow(0 -4px 18px rgba(255, 200, 220, 0.5)) drop-shadow(0 8px 16px rgba(150, 40, 70, 0.3));
+    }
+
+    /* Before/after inset box */
+    .hero-ba-inset {
+      position: absolute;
+      bottom: 24px;
+      right: 12px;
+      width: 48%;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(150, 40, 70, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-ba-imgs {
+      display: flex;
+    }
+
+    .hero-ba-half {
+      flex: 1;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-ba-half img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-ba-half.before-half {
+      background: linear-gradient(135deg, #e8849a, #d46070);
+    }
+
+    .hero-ba-half.after-half {
+      background: linear-gradient(135deg, #fde8ef, #f8c0d0);
+    }
+
+    .hero-ba-labels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #fde8ef;
+    }
+
+    .hero-ba-label {
+      text-align: center;
+      padding: 6px 4px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .hero-ba-label.lft {
+      color: #888;
+      border-right: 1px solid #fde8ef;
+    }
+
+    .hero-ba-label.rgt {
+      color: #c84060;
+    }
+
+    /* Bottom tagline strip */
+    .hero-tagline-strip {
+      position: relative;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.18);
+      padding: 16px 20px 20px;
+      text-align: center;
+    }
+
+    .hero-tagline-line1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 2px 6px rgba(100, 20, 40, 0.4);
+    }
+
+    .hero-tagline-line1 .tl-pointer {
+      font-size: 24px;
+      margin-right: 4px;
+    }
+
+    .hero-tagline-line1 .tl-highlight {
+      color: #ffe066;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 224, 102, 0.5);
+    }
+
+    .hero-tagline-line2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(100, 20, 40, 0.5);
+      margin-top: 2px;
+    }
+
+    .hero-tagline-line2 .tl-bold {
+      color: #ffe066;
+    }
+
+    .hero-cta-wrap {
+      padding: 0 20px 24px;
+      position: relative;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.15);
     }
 
     .hero-cta {
       display: block;
-      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-deep) 50%, #c8546e 100%);
-      color: white;
+      background: linear-gradient(135deg, #fff 0%, #ffe8f0 100%);
+      color: #c8406a;
       text-align: center;
       padding: 18px 24px;
       font-size: 20px;
@@ -349,27 +360,27 @@
       border-radius: 50px;
       margin: 0;
       text-decoration: none;
-      box-shadow: 0 8px 30px rgba(232, 132, 154, 0.5);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       font-family: 'Halant', serif;
       cursor: pointer;
       border: none;
       width: 100%;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       position: relative;
       z-index: 2;
     }
 
     .hero-cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(232, 132, 154, 0.65);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
     }
 
     .hero-cta:active {
       transform: translateY(0);
     }
 
-    /* Eyebrow kept for other sections using it */
+    /* Unused but kept for compat */
     .hero-eyebrow {
       font-size: 15px;
       color: var(--pink-deep);
@@ -402,6 +413,18 @@
       height: 3px;
       background: linear-gradient(90deg, var(--pink), transparent);
       border-radius: 2px;
+    }
+
+    .hook-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 0 20px;
+    }
+
+    .hook-q {
+      font-size: 17px;
+      font-weight: 500;
     }
 
     /* ===== SECTION COMMONS ===== */
@@ -1733,84 +1756,110 @@
 
   <div class="page">
 
-    <!-- ===== HERO — CANVA POSTER ===== -->
+
+    <!-- ===== HERO — CANVA POSTER EXACT MATCH ===== -->
     <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-sparkles"></div>
 
-      <!-- Top strip -->
-      <div class="hero-topstrip">🌿 100% Ayurvedic &nbsp;·&nbsp; Herbal &nbsp;·&nbsp; Natural &nbsp;·&nbsp; Trusted
+      <!-- Wavy ribbon top (white semi-transparent wave) -->
+      <div class="hero-wave-top">
+        <svg viewBox="0 0 450 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:18px;">
+          <path d="M0 9 Q56 0 112 9 Q168 18 224 9 Q280 0 336 9 Q392 18 450 9 L450 0 L0 0 Z"
+            fill="rgba(255,255,255,0.22)" />
+        </svg>
       </div>
 
-      <!-- Decorative botanical SVGs -->
-      <svg class="hero-deco-left" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M60 10 Q20 60 40 110 Q60 160 30 190" stroke="#f4a7b9" stroke-width="1.5" stroke-linecap="round"
-          fill="none" />
-        <ellipse cx="30" cy="55" rx="18" ry="10" fill="#f4a7b9" opacity="0.4" transform="rotate(-30 30 55)" />
-        <ellipse cx="48" cy="100" rx="14" ry="8" fill="#f4a7b9" opacity="0.3" transform="rotate(20 48 100)" />
-        <ellipse cx="28" cy="148" rx="16" ry="9" fill="#f4a7b9" opacity="0.25" transform="rotate(-15 28 148)" />
-      </svg>
-      <svg class="hero-deco-right" viewBox="0 0 80 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M60 10 Q20 60 40 110 Q60 160 30 190" stroke="#f4a7b9" stroke-width="1.5" stroke-linecap="round"
-          fill="none" />
-        <ellipse cx="30" cy="55" rx="18" ry="10" fill="#f4a7b9" opacity="0.4" transform="rotate(-30 30 55)" />
-        <ellipse cx="48" cy="100" rx="14" ry="8" fill="#f4a7b9" opacity="0.3" transform="rotate(20 48 100)" />
-        <ellipse cx="28" cy="148" rx="16" ry="9" fill="#f4a7b9" opacity="0.25" transform="rotate(-15 28 148)" />
-      </svg>
-
-      <!-- Poster top -->
-      <div class="hero-poster-top">
-
-        <!-- Brand row -->
-        <div class="hero-brand-row">
-          <div class="hero-brand-line"></div>
-          <div class="hero-brand-name">Breast Plus</div>
-          <div class="hero-brand-line"></div>
-        </div>
-
-        <!-- Main title -->
-        <h1 class="hero-poster-title">
-          Natural तरीके से<br>
-          <em>Shape &amp; Firmness</em>
-          पाएं
+      <!-- BIG HEADLINE -->
+      <div class="hero-headline-block">
+        <h1 class="hero-h-main">
+          क्या आपका <span class="h-em">breast size</span> आपकी<br>
+          <span class="h-em">personality</span> को पीछे कर रहा है...?
         </h1>
-        <p class="hero-poster-tagline">Ayurvedic Herbal Breast Care Cream</p>
-
-        <!-- Product image with rings -->
-        <div class="hero-img-wrap">
-          <div class="hero-img-ring"></div>
-          <div class="hero-img-ring2"></div>
-          <div class="hero-img-glow"></div>
-          <img src="./Image/Product.png" alt="Breast Plus Cream" class="hero-product-img">
-        </div>
-
-        <!-- Badge pills -->
-        <div class="hero-badges-row">
-          <span class="hero-badge-pill">🌿 100% Herbal</span>
-          <span class="hero-badge-pill">✔ No Side Effects</span>
-          <span class="hero-badge-pill">⭐ Trusted</span>
-        </div>
-
-        <!-- Ornament -->
-        <div class="hero-ornament">✦ ✦ ✦</div>
       </div>
 
-      <!-- Hook questions -->
-      <div class="hero-content">
-        <div class="hero-qs-label">— क्या आप भी इन problems से परेशान हैं? —</div>
+      <!-- Wavy divider ribbon -->
+      <div class="hero-wave-divider">
+        <svg viewBox="0 0 450 28" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:28px;">
+          <path d="M0 14 Q56 0 112 14 Q168 28 224 14 Q280 0 336 14 Q392 28 450 14 L450 28 L0 28 Z"
+            fill="rgba(255,230,235,0.92)" />
+          <path d="M0 10 Q56 0 112 10 Q168 20 224 10 Q280 0 336 10 Q392 20 450 10" stroke="rgba(255,255,255,0.55)"
+            stroke-width="1.5" fill="none" />
+        </svg>
+      </div>
 
-        <div class="hook-questions">
-          <div class="hook-q"><span class="q-icon">😟</span>क्या आपका breast size आपकी personality को पीछे कर रहा है…?
+      <!-- BOTTOM VISUAL: woman + before/after inset -->
+      <div class="hero-bottom-visual">
+
+        <!-- Woman image (left side) -->
+        <img src="./Image/Hook.png" alt="Woman" class="hero-woman-img" onerror="this.style.opacity='0'">
+
+        <!-- Before / After inset (right side) -->
+        <!-- <div class="hero-ba-inset">
+        <div class="hero-ba-imgs">
+          <div class="hero-ba-half before-half">
+            <img src="./Image/product.png" alt="Before"
+              onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'font-size:30px;text-align:center\'>😟</div>'">
           </div>
-          <div class="hook-q"><span class="q-icon">💔</span>Loose, sagging और uneven breast shape से परेशान हैं…?</div>
-          <div class="hook-q"><span class="q-icon">👶</span>शादी के बाद या weight loss के बाद breast ढीले हो गए हैं…?
+          <div class="hero-ba-half after-half">
+            <img src="./Image/product.png" alt="After"
+              onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'font-size:30px;text-align:center\'>✨</div>'">
           </div>
-          <div class="hook-q"><span class="q-icon">🌿</span>Natural तरीके से breast size और shape improve करना चाहती
-            हैं…?</div>
+        </div>
+        <div class="hero-ba-labels">
+          <div class="hero-ba-label lft">ढीले</div>
+          <div class="hero-ba-label rgt">सुंदर</div>
+        </div>
+      </div> -->
+
+      </div>
+
+      <!-- CHECKMARK QUESTIONS -->
+      <div class="hero-qs-area">
+
+        <div class="hero-check-item">
+          <div class="hero-check-icon">
+            <svg viewBox="0 0 16 16">
+              <polyline points="2,8 6,12 14,4" />
+            </svg>
+          </div>
+          <div class="hero-check-text">Loose, sagging और <b>uneven breast shape</b> से परेशान हैं...?</div>
         </div>
 
-        <div class="hero-answer">
-          👉 अब चुप रहने की जरूरत नहीं…<br>सही care से बदलाव संभव है।
+        <div class="hero-check-item">
+          <div class="hero-check-icon">
+            <svg viewBox="0 0 16 16">
+              <polyline points="2,8 6,12 14,4" />
+            </svg>
+          </div>
+          <div class="hero-check-text">शादी के बाद या <b>weight loss</b> के बाद <b>breast</b> ढीले हो गए हैं...?</div>
         </div>
 
+        <div class="hero-check-item">
+          <div class="hero-check-icon">
+            <svg viewBox="0 0 16 16">
+              <polyline points="2,8 6,12 14,4" />
+            </svg>
+          </div>
+          <div class="hero-check-text">Natural तरीके से <b>breast size और shape improve</b> करना चाहती हैं...?</div>
+        </div>
+
+      </div>
+
+
+
+      <!-- BOTTOM TAGLINE STRIP -->
+      <div class="hero-tagline-strip">
+        <div class="hero-tagline-line1">
+          <span class="tl-pointer">👉</span> <span class="tl-highlight">अब चुप रहने</span> की जरूरत नहीं...
+        </div>
+        <div class="hero-tagline-line2">
+          सही <span class="tl-bold">care</span> से बदलाव <span class="tl-bold">संभव</span> है।
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="hero-cta-wrap">
         <button class="hero-cta" onclick="scrollToOrder()">🛒 अभी Order करें — Limited Stock!</button>
       </div>
 
@@ -1904,28 +1953,32 @@
         <div
           style="background:linear-gradient(135deg,#fde8ef,#fff0f5);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:all 0.3s;"
           onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform='scale(1)'">
-          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro4.png" style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
+          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro4.png"
+              style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
           <div style="font-size:20px;font-weight:700;color:var(--text-dark);">Natural Formula</div>
           <div style="font-size:18px;color:var(--text-mid);margin-top:3px;">Ayurvedic blend</div>
         </div>
         <div
           style="background:linear-gradient(135deg,#fde8ef,#fff0f5);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:all 0.3s;"
           onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform='scale(1)'">
-          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro3.png" style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
+          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro3.png"
+              style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
           <div style="font-size:20px;font-weight:700;color:var(--text-dark);">Visible Results</div>
           <div style="font-size:18px;color:var(--text-mid);margin-top:3px;">4–6 हफ्तों में</div>
         </div>
         <div
           style="background:linear-gradient(135deg,#fde8ef,#fff0f5);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:all 0.3s;"
           onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform='scale(1)'">
-          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro2.png" style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
+          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro1.png"
+              style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
           <div style="font-size:20px;font-weight:700;color:var(--text-dark);">100% Safe</div>
           <div style="font-size:18px;color:var(--text-mid);margin-top:3px;">No side effects</div>
         </div>
         <div
           style="background:linear-gradient(135deg,#fde8ef,#fff0f5);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:all 0.3s;"
           onmouseenter="this.style.transform='scale(1.04)'" onmouseleave="this.style.transform='scale(1)'">
-          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro1.png" style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
+          <div style="font-size:32px;margin-bottom:6px;"><img src="./Image/Pro2.png"
+              style="width:150px; height: 150px; border-radius: 15%;" alt="Natural Formula"></div>
           <div style="font-size:20px;font-weight:700;color:var(--text-dark);">Confidence Boost</div>
           <div style="font-size:18px;color:var(--text-mid);margin-top:3px;">Feel beautiful</div>
         </div>
@@ -2282,19 +2335,23 @@
 
       <div class="trust-grid">
         <div class="trust-badge">
-          <span class="icon"><img src="./Image/Trust1.png" style="width: 120px; height: 120px; border-radius: 15%;" alt=""></span>
+          <span class="icon"><img src="./Image/Trust1.png" style="width: 120px; height: 120px; border-radius: 15%;"
+              alt=""></span>
           <div class="t-title">Ayurvedic Formulation</div>
         </div>
         <div class="trust-badge">
-          <span class="icon"><img src="./Image/Trust2.png" style="width: 120px; height: 120px; border-radius: 15%;" alt=""></span>
+          <span class="icon"><img src="./Image/Trust2.png" style="width: 120px; height: 120px; border-radius: 15%;"
+              alt=""></span>
           <div class="t-title">Dermatologically Tested</div>
         </div>
         <div class="trust-badge">
-          <span class="icon"><img src="./Image/Trust3.png" style="width: 120px; height: 120px; border-radius: 15%;" alt=""></span>
+          <span class="icon"><img src="./Image/Trust3.png" style="width: 120px; height: 120px; border-radius: 15%;"
+              alt=""></span>
           <div class="t-title">No Parabens / No Chemicals</div>
         </div>
         <div class="trust-badge">
-          <span class="icon"><img src="./Image/Trust4.png" style="width: 120px; height: 120px; border-radius: 15%;" alt=""></span>
+          <span class="icon"><img src="./Image/Trust4.png" style="width: 120px; height: 120px; border-radius: 15%;"
+              alt=""></span>
           <div class="t-title">हजारों महिलाओं द्वारा Trusted</div>
         </div>
       </div>
@@ -2353,7 +2410,7 @@
 
       <button class="hero-cta" style="margin-top:24px;" onclick="scrollToOrder()">🛒 अभी Order करें — Offer खत्म होने से
         पहले!</button>
-    </section>    
+    </section>
 
     <div class="divider"></div>
 
